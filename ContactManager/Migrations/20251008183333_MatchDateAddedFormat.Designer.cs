@@ -3,6 +3,7 @@ using ContactManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactManager.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20251008183333_MatchDateAddedFormat")]
+    partial class MatchDateAddedFormat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,7 +123,7 @@ namespace ContactManager.Migrations
                         {
                             ContactId = 1,
                             CategoryId = 3,
-                            DateAdded = "01-15-2024 at 10:30:45 AM",
+                            DateAdded = "10-08-2025 at 12:33:31 PM",
                             Email = "john.doe@contactsmanager.com",
                             FirstName = "John",
                             LastName = "Doe",
@@ -131,7 +134,7 @@ namespace ContactManager.Migrations
                         {
                             ContactId = 2,
                             CategoryId = 2,
-                            DateAdded = "01-15-2024 at 11:15:20 AM",
+                            DateAdded = "10-08-2025 at 12:33:32 PM",
                             Email = "jane.smith@contactsmanager.com",
                             FirstName = "Jane",
                             LastName = "Smith",
@@ -142,7 +145,7 @@ namespace ContactManager.Migrations
                         {
                             ContactId = 3,
                             CategoryId = 1,
-                            DateAdded = "01-15-2024 at 02:45:10 PM",
+                            DateAdded = "10-08-2025 at 12:33:32 PM",
                             Email = "michael.johnson@contactsmanager.com",
                             FirstName = "Michael",
                             LastName = "Johnson",
