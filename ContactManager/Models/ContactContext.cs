@@ -41,7 +41,7 @@ namespace ContactManager.Models
                     Email = "john.doe@contactsmanager.com",
                     Organization = "Contacts Manager Inc.",
                     CategoryId = 3,
-                    DateAdded = DateTime.Now.ToString("MM-dd-yyyy")
+                    DateAdded = $"{DateTime.Now:MM-dd-yyyy} at {DateTime.Now:hh:mm:ss tt}"
                 },
 
                 new Contact
@@ -53,7 +53,7 @@ namespace ContactManager.Models
                     Email = "jane.smith@contactsmanager.com",
                     Organization = "Contacts Manager Inc.",
                     CategoryId = 2,
-                    DateAdded = DateTime.Now.ToString("MM-dd-yyyy")
+                    DateAdded = $"{DateTime.Now:MM-dd-yyyy} at {DateTime.Now:hh:mm:ss tt}"
                 },
 
                 new Contact
@@ -65,7 +65,7 @@ namespace ContactManager.Models
                     Email = "michael.johnson@contactsmanager.com",
                     Organization = "Contacts Manager Inc.",
                     CategoryId = 1,
-                    DateAdded = DateTime.Now.ToString("MM-dd-yyyy")
+                    DateAdded = $"{DateTime.Now:MM-dd-yyyy} at {DateTime.Now:hh:mm:ss tt}"
                 }
              );
         }
