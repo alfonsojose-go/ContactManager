@@ -61,7 +61,10 @@
         <button type="submit" class="btn btn-primary">
             @ViewBag.Action
         </button>
-        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <a asp-controller="Contact" asp-action="Details" asp-route-id="@Model.ContactId" 
+            class="btn btn-secondary">
+            Cancel
+        </a>
     
         
     </div>
