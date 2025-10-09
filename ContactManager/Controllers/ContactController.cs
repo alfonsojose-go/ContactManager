@@ -1,6 +1,5 @@
 ﻿using ContactManager.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +13,7 @@ namespace ContactManager.Controllers
         {
             context = ctx;
         }
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -40,17 +40,13 @@ namespace ContactManager.Controllers
                 {
                     context.Contact.Add(contact);
                     context.SaveChanges();
-                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     context.Contact.Update(contact);
                     context.SaveChanges();
-                    return RedirectToAction("Index", "Home");
-
                 }
-                    
-                
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -59,6 +55,7 @@ namespace ContactManager.Controllers
                 return View(contact);
             }
         }
+
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -74,16 +71,23 @@ namespace ContactManager.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpGet]
-        public IActionResult Details(int id)
+        // Updated Details action with optional slug
+        [HttpGet("/Contact/Details/{id}/{slug?}")]
+        public IActionResult Details(int id, string? slug)
         {
             var contact = context.Contact
-                .Include(c => c.Category)  // This loads the Category data
+                .Include(c => c.Category)
                 .FirstOrDefault(c => c.ContactId == id);
 
             if (contact == null)
             {
                 return NotFound();
+            }
+
+            // Optional: Redirect to the correct slug if it doesn’t match
+            if (slug == null || slug != contact.Slug)
+            {
+                return RedirectToActionPermanent("Details", new { id = id, slug = contact.Slug });
             }
 
             return View(contact);
