@@ -3,6 +3,7 @@ using ContactManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactManager.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20251009141822_ContactIdInitial")]
+    partial class ContactIdInitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,41 +124,6 @@ namespace ContactManager.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Contacts");
-
-                    b.HasData(
-                        new
-                        {
-                            ContactId = -1,
-                            CategoryId = 3,
-                            DateAdded = "01-15-2024 at 10:30:45 AM",
-                            Email = "john.doe@contactsmanager.com",
-                            FirstName = "John",
-                            LastName = "Doe",
-                            Organization = "Contacts Manager Inc.",
-                            Phone = "1234567890"
-                        },
-                        new
-                        {
-                            ContactId = -2,
-                            CategoryId = 2,
-                            DateAdded = "01-15-2024 at 11:15:20 AM",
-                            Email = "jane.smith@contactsmanager.com",
-                            FirstName = "Jane",
-                            LastName = "Smith",
-                            Organization = "Contacts Manager Inc.",
-                            Phone = "9876543210"
-                        },
-                        new
-                        {
-                            ContactId = -3,
-                            CategoryId = 1,
-                            DateAdded = "01-15-2024 at 02:45:10 PM",
-                            Email = "michael.johnson@contactsmanager.com",
-                            FirstName = "Michael",
-                            LastName = "Johnson",
-                            Organization = "Contacts Manager Inc.",
-                            Phone = "5551234567"
-                        });
                 });
 
             modelBuilder.Entity("ContactManager.Models.Contact", b =>

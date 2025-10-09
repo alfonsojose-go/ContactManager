@@ -3,6 +3,7 @@ using ContactManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactManager.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20251009140340_ThirdInitial")]
+    partial class ThirdInitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,7 +128,7 @@ namespace ContactManager.Migrations
                     b.HasData(
                         new
                         {
-                            ContactId = -1,
+                            ContactId = 1,
                             CategoryId = 3,
                             DateAdded = "01-15-2024 at 10:30:45 AM",
                             Email = "john.doe@contactsmanager.com",
@@ -136,7 +139,7 @@ namespace ContactManager.Migrations
                         },
                         new
                         {
-                            ContactId = -2,
+                            ContactId = 2,
                             CategoryId = 2,
                             DateAdded = "01-15-2024 at 11:15:20 AM",
                             Email = "jane.smith@contactsmanager.com",
@@ -147,7 +150,7 @@ namespace ContactManager.Migrations
                         },
                         new
                         {
-                            ContactId = -3,
+                            ContactId = 3,
                             CategoryId = 1,
                             DateAdded = "01-15-2024 at 02:45:10 PM",
                             Email = "michael.johnson@contactsmanager.com",

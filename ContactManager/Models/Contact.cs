@@ -5,6 +5,7 @@ namespace ContactManager.Models
 {
     public class Contact
     {
+        
         public int ContactId { get; set; }
 
         
